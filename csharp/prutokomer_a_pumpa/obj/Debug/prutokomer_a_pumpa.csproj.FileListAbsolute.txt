@@ -1,0 +1,10 @@
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\prutokomer_a_pumpa.exe.config
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\prutokomer_a_pumpa.exe
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\prutokomer_a_pumpa.pdb
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.AssemblyReference.cache
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.Form1.resources
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.Properties.Resources.resources
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.GenerateResource.cache
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.CoreCompileInputs.cache
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.exe
+C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.pdb
