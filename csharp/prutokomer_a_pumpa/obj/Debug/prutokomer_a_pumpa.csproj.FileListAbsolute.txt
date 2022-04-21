@@ -8,3 +8,13 @@ C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pum
 C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.CoreCompileInputs.cache
 C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.exe
 C:\Users\vicar\Desktop\prutokomer_tmp\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.pdb
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\prutokomer_a_pumpa.exe.config
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\prutokomer_a_pumpa.exe
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\prutokomer_a_pumpa.pdb
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.AssemblyReference.cache
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.Form1.resources
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.Properties.Resources.resources
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.GenerateResource.cache
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.CoreCompileInputs.cache
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.exe
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.pdb
