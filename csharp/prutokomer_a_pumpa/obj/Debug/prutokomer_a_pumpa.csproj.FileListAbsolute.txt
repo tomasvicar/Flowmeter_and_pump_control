@@ -18,3 +18,6 @@ C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_
 C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.CoreCompileInputs.cache
 C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.exe
 C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.pdb
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tomas\Desktop\flowmeter_a_pumpa\Prutokomer_a_pumpa\csharp\prutokomer_a_pumpa\obj\Debug\prutokomer_a_pumpa.csproj.CopyComplete
