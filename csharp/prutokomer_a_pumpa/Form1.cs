@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
@@ -15,31 +15,30 @@ using Newtonsoft.Json;
 
 namespace prutokomer_a_pumpa
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroFramework.Forms.MetroForm
     {
-        private SerialPort serialPort;
+        
         private SerialPort serialPort2;
-        private bool recording = false;
-        private StreamWriter textfile;
-        private decimal period = 0.05m;
-        //private decimal maxShowSamples = 600;
-        private decimal maxShowSamples = 800;
-        private decimal t;
         private CultureInfo enUS = new CultureInfo("en-US");
         private string actulaPump = "1";
         private DateTime startTime;
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private float req_time;
-        private string header;
+        private Flowmeter flowmeter;
+
 
         public Form1()
         {
 
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("cs-CZ");
             InitializeComponent();
+
             SetLoger();
             openPumpSerial();
-            openFlowSerial();
+
+            flowmeter = new Flowmeter(this);
+            flowmeter.openFlowSerial();
+
             update_filename();
         }
         private void SetLoger()
@@ -62,124 +61,11 @@ namespace prutokomer_a_pumpa
 
         }
 
-
         private void COM_flow_Click(object sender, EventArgs e)
         {
-            openFlowSerial();
+            flowmeter.openFlowSerial();
         }
-        private void openFlowSerial()
-        {
-            label_COM_flow.Text = "Connecting";
-            label_COM_flow.ForeColor = System.Drawing.Color.Gray;
 
-            string[] arrayComPortsNames = SerialPort.GetPortNames();
-
-            if (!(serialPort == null))
-            {
-                if (serialPort.IsOpen)
-                {
-                    serialPort.Close();
-                    Thread.Sleep(3000);
-                }
-            }
-            foreach (string port in arrayComPortsNames)
-            {
-                Console.WriteLine(port);
-                try
-                {
-                    serialPort = new SerialPort(port, 115200);
-
-                    serialPort.Open();
-                    serialPort.WriteTimeout = 1000;
-                    serialPort.ReadTimeout = 1000;
-
-                    Thread.Sleep(100);
-                    string message1 = serialPort.ReadLine();
-
-
-                    Console.WriteLine(message1);
-
-                    if (message1.StartsWith("F"))
-                    {
-                        serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandlerFlow);
-                        label_COM_flow.Text = port;
-                        label_COM_flow.ForeColor = System.Drawing.Color.Green;
-
-                        //string indata = serialPort.ReadLine();
-                        //Console.WriteLine(indata);
-
-                        return;
-                    }
-                    else
-                    {
-                        serialPort.Close();
-
-                    }
-
-                }
-                catch (TimeoutException)
-                {
-                    Console.WriteLine("time out");
-                    serialPort.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                    serialPort.Close();
-                }
-            }
-            label_COM_flow.Text = "NA";
-            label_COM_flow.ForeColor = System.Drawing.Color.Red;
-
-        }
-        private void DataReceivedHandlerFlow(object sender, SerialDataReceivedEventArgs e)
-        {
-            try
-            {
-                SerialPort sp = (SerialPort)sender;
-                //string indata = sp.ReadExisting();
-
-                string indata = sp.ReadLine().Substring(1).Trim();
-
-
-                if (checkBox_showPlot.Checked)
-                {
-                    decimal data = Convert.ToDecimal(indata, enUS);
-
-                    t = t + period;
-
-                    chart_flow.BeginInvoke((MethodInvoker)delegate
-                    {
-                        chart_flow.Series[0].Points.AddXY(t, data);
-                        if (chart_flow.Series[0].Points.Count > maxShowSamples)
-                        {
-                            chart_flow.Series[0].Points.RemoveAt(0);
-
-                        }
-                        chart_flow.ChartAreas[0].RecalculateAxesScale();
-                    });
-                }
-
-
-
-                if (recording)
-                {
-                    if (textfile.BaseStream != null)
-                    {
-                        string to_write = DateTime.Now.ToString("HH:mm:ss.fff");
-                        to_write += ";" + indata + "\n";
-                        textfile.Write(to_write);
-                        //Console.Write(to_write);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-
-            }
-
-        }
 
         private void button_start_Click(object sender, EventArgs e)
         {
@@ -187,23 +73,11 @@ namespace prutokomer_a_pumpa
             button_start_without_recording.Enabled = false;
             textBox_filename.Enabled = false;
 
-            DateTime time = DateTime.Now;
-            CultureInfo csCZ = CultureInfo.GetCultureInfo("cs-CZ");
-            string filename = Path.Combine(textBox_filename.Text + '_' + time.ToString(csCZ).Replace(".", "_").Replace(":", "_").Replace(" ", "_") + ".txt");
+            flowmeter.startTextFile();
 
-            textfile = new StreamWriter(filename);
-
-            string header2 = get_header_2();
-
-            textfile.Write(header2);
-
-            textfile.Write(header);
-
-            textfile.Write("###header_end###\n");
-
-            recording = true;
 
             serialPort2.WriteLine(actulaPump + " start 1 ");
+
 
             startTimer();
 
@@ -216,8 +90,8 @@ namespace prutokomer_a_pumpa
             button_stop.Enabled = false;
             textBox_filename.Enabled = true;
 
-            recording = false;
-            textfile.Close();
+            flowmeter.recording = false;
+            flowmeter.closeTextfile();
 
             serialPort2.WriteLine(actulaPump + " pause ");
 
@@ -235,7 +109,7 @@ namespace prutokomer_a_pumpa
                 this.chart_flow.BeginInvoke((MethodInvoker)delegate
                 {
                     chart_flow.Series[0].Points.Clear();
-                    t = 0m;
+                    flowmeter.resetTime();
                 });
             }
 
@@ -888,24 +762,6 @@ namespace prutokomer_a_pumpa
             update_filename();
         }
 
-        private string get_header_2()
-        {
 
-
-            string header_2 = "";
-            header_2 += "experiment_number " + numericUpDown_number.Value.ToString("00") + "\n";
-            header_2 += "experiment " + textBox_experiment.Text + "\n";
-            header_2 += "WP " + numericUpDown_WP.Value.ToString("0") + "\n";
-            header_2 += "well " + numericUpDown_well.Value.ToString("0") + "\n";
-            header_2 += "FOV " + numericUpDown_FOV.Value.ToString("0") + "\n";
-            header_2 += "cells " + textBox_cells.Text + "\n";
-
-            header_2 += "well_position " + textBox_well_position.Text + "\n";
-            header_2 += "date_seeded " + maskedTextBox_date_seeded.Text + "\n";
-            header_2 += "note " + textBox_note.Text + "\n";
-
-
-            return header_2;
-        }
     }
 }

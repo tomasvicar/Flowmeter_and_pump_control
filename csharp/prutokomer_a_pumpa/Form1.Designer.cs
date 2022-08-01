@@ -29,9 +29,9 @@ namespace prutokomer_a_pumpa
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label_COM_flow = new System.Windows.Forms.Label();
             this.chart_flow = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.textBox_filename = new System.Windows.Forms.TextBox();
@@ -153,7 +153,7 @@ namespace prutokomer_a_pumpa
             // 
             this.label_COM_flow.AutoSize = true;
             this.label_COM_flow.ForeColor = System.Drawing.Color.Red;
-            this.label_COM_flow.Location = new System.Drawing.Point(329, 7);
+            this.label_COM_flow.Location = new System.Drawing.Point(451, 343);
             this.label_COM_flow.Name = "label_COM_flow";
             this.label_COM_flow.Size = new System.Drawing.Size(20, 17);
             this.label_COM_flow.TabIndex = 0;
@@ -163,18 +163,18 @@ namespace prutokomer_a_pumpa
             // 
             // chart_flow
             // 
-            chartArea12.Name = "ChartArea1";
-            this.chart_flow.ChartAreas.Add(chartArea12);
-            legend12.Name = "Legend1";
-            this.chart_flow.Legends.Add(legend12);
+            chartArea1.Name = "ChartArea1";
+            this.chart_flow.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_flow.Legends.Add(legend1);
             this.chart_flow.Location = new System.Drawing.Point(12, 29);
             this.chart_flow.Name = "chart_flow";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series12.IsVisibleInLegend = false;
-            series12.Legend = "Legend1";
-            series12.Name = "Series1";
-            this.chart_flow.Series.Add(series12);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_flow.Series.Add(series1);
             this.chart_flow.Size = new System.Drawing.Size(1255, 301);
             this.chart_flow.TabIndex = 1;
             this.chart_flow.Text = "flow";
@@ -190,24 +190,30 @@ namespace prutokomer_a_pumpa
             // 
             // button_start
             // 
+            this.button_start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_start.Enabled = false;
+            this.button_start.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_start.Location = new System.Drawing.Point(545, 331);
             this.button_start.Name = "button_start";
             this.button_start.Size = new System.Drawing.Size(131, 32);
             this.button_start.TabIndex = 3;
             this.button_start.Text = "Start";
-            this.button_start.UseVisualStyleBackColor = true;
+            this.button_start.UseVisualStyleBackColor = false;
             this.button_start.Click += new System.EventHandler(this.button_start_Click);
             // 
             // button_stop
             // 
+            this.button_stop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_stop.Enabled = false;
+            this.button_stop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_stop.Location = new System.Drawing.Point(682, 332);
             this.button_stop.Name = "button_stop";
             this.button_stop.Size = new System.Drawing.Size(98, 31);
             this.button_stop.TabIndex = 4;
             this.button_stop.Text = "Stop";
-            this.button_stop.UseVisualStyleBackColor = true;
+            this.button_stop.UseVisualStyleBackColor = false;
             this.button_stop.Click += new System.EventHandler(this.button_stop_Click);
             // 
             // checkBox_showPlot
@@ -243,24 +249,30 @@ namespace prutokomer_a_pumpa
             // 
             // button_start_without_recording
             // 
+            this.button_start_without_recording.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_start_without_recording.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_start_without_recording.Enabled = false;
+            this.button_start_without_recording.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_start_without_recording.Location = new System.Drawing.Point(870, 336);
             this.button_start_without_recording.Name = "button_start_without_recording";
             this.button_start_without_recording.Size = new System.Drawing.Size(101, 27);
             this.button_start_without_recording.TabIndex = 8;
             this.button_start_without_recording.Text = "Start w/o rec.";
-            this.button_start_without_recording.UseVisualStyleBackColor = true;
+            this.button_start_without_recording.UseVisualStyleBackColor = false;
             this.button_start_without_recording.Click += new System.EventHandler(this.button_start_without_recording_Click);
             // 
             // button_stop_without_recording
             // 
+            this.button_stop_without_recording.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_stop_without_recording.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button_stop_without_recording.Enabled = false;
+            this.button_stop_without_recording.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_stop_without_recording.Location = new System.Drawing.Point(992, 336);
             this.button_stop_without_recording.Name = "button_stop_without_recording";
             this.button_stop_without_recording.Size = new System.Drawing.Size(101, 27);
             this.button_stop_without_recording.TabIndex = 9;
             this.button_stop_without_recording.Text = "Stop w/o rec.";
-            this.button_stop_without_recording.UseVisualStyleBackColor = true;
+            this.button_stop_without_recording.UseVisualStyleBackColor = false;
             this.button_stop_without_recording.Click += new System.EventHandler(this.button_stop_without_recording_Click);
             // 
             // label_pa_to_ml_min
@@ -291,22 +303,28 @@ namespace prutokomer_a_pumpa
             // 
             // button_save_settings
             // 
+            this.button_save_settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_save_settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button_save_settings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_save_settings.Location = new System.Drawing.Point(1167, 336);
             this.button_save_settings.Name = "button_save_settings";
             this.button_save_settings.Size = new System.Drawing.Size(109, 20);
             this.button_save_settings.TabIndex = 16;
             this.button_save_settings.Text = "save settings";
-            this.button_save_settings.UseVisualStyleBackColor = true;
+            this.button_save_settings.UseVisualStyleBackColor = false;
             this.button_save_settings.Click += new System.EventHandler(this.button_save_settings_Click);
             // 
             // button_load_setttings
             // 
+            this.button_load_setttings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_load_setttings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button_load_setttings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button_load_setttings.Location = new System.Drawing.Point(1167, 356);
             this.button_load_setttings.Name = "button_load_setttings";
             this.button_load_setttings.Size = new System.Drawing.Size(109, 20);
             this.button_load_setttings.TabIndex = 17;
             this.button_load_setttings.Text = "load settings";
-            this.button_load_setttings.UseVisualStyleBackColor = true;
+            this.button_load_setttings.UseVisualStyleBackColor = false;
             this.button_load_setttings.Click += new System.EventHandler(this.button_load_setttings_Click);
             // 
             // panel2
@@ -1323,13 +1341,8 @@ namespace prutokomer_a_pumpa
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label_COM_flow;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_flow;
-        private System.Windows.Forms.TextBox textBox_filename;
         private System.Windows.Forms.Button button_start;
         private System.Windows.Forms.Button button_stop;
-        private System.Windows.Forms.CheckBox checkBox_showPlot;
         private System.Windows.Forms.Label label_COM_pump;
         private System.Windows.Forms.ListBox listBox_pump_comunication;
         private System.Windows.Forms.Button button_start_without_recording;
@@ -1409,23 +1422,27 @@ namespace prutokomer_a_pumpa
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label_timer;
         private System.Windows.Forms.Label label_experiment;
-        private System.Windows.Forms.TextBox textBox_experiment;
         private System.Windows.Forms.Label label_WP;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label_FOV;
         private System.Windows.Forms.Label label_numer;
-        private System.Windows.Forms.NumericUpDown numericUpDown_number;
-        private System.Windows.Forms.NumericUpDown numericUpDown_WP;
-        private System.Windows.Forms.NumericUpDown numericUpDown_well;
-        private System.Windows.Forms.NumericUpDown numericUpDown_FOV;
         private System.Windows.Forms.Label label_cells;
-        private System.Windows.Forms.TextBox textBox_cells;
         private System.Windows.Forms.Label label_well_position;
-        private System.Windows.Forms.TextBox textBox_well_position;
         private System.Windows.Forms.Label label_date_seeded;
         private System.Windows.Forms.Label label_note;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox_date_seeded;
-        private System.Windows.Forms.TextBox textBox_note;
+        public System.Windows.Forms.Label label_COM_flow;
+        public System.Windows.Forms.CheckBox checkBox_showPlot;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chart_flow;
+        public System.Windows.Forms.TextBox textBox_filename;
+        public System.Windows.Forms.TextBox textBox_experiment;
+        public System.Windows.Forms.NumericUpDown numericUpDown_number;
+        public System.Windows.Forms.NumericUpDown numericUpDown_WP;
+        public System.Windows.Forms.NumericUpDown numericUpDown_well;
+        public System.Windows.Forms.NumericUpDown numericUpDown_FOV;
+        public System.Windows.Forms.TextBox textBox_cells;
+        public System.Windows.Forms.TextBox textBox_well_position;
+        public System.Windows.Forms.MaskedTextBox maskedTextBox_date_seeded;
+        public System.Windows.Forms.TextBox textBox_note;
     }
 }
 
