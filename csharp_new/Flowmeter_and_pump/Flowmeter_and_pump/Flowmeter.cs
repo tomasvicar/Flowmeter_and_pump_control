@@ -20,7 +20,6 @@ public class Flowmeter
     private decimal t;
     public bool recording = false;
     private StreamWriter textfile;
-    private string header;
 
     public Flowmeter(Form1 form)
     {
@@ -153,7 +152,7 @@ public class Flowmeter
 
         textfile.Write(header2);
 
-        textfile.Write(header);
+        textfile.Write(form.header);
 
         textfile.Write("###header_end###\n");
 
@@ -170,16 +169,16 @@ public class Flowmeter
 
 
         string header_2 = "";
-        //header_2 += "experiment_number " + form.numericUpDown_number.Value.ToString("00") + "\n";
-        //header_2 += "experiment " + form.textBox_experiment.Text + "\n";
-        //header_2 += "WP " + form.numericUpDown_WP.Value.ToString("0") + "\n";
-        //header_2 += "well " + form.numericUpDown_well.Value.ToString("0") + "\n";
-        //header_2 += "FOV " + form.numericUpDown_FOV.Value.ToString("0") + "\n";
-        //header_2 += "cells " + form.textBox_cells.Text + "\n";
+        header_2 += "experiment_number " + form.numericUpDown_number.Value.ToString("00") + "\n";
+        header_2 += "experiment " + form.textBox_experiment.Text + "\n";
+        header_2 += "WP " + form.numericUpDown_WP.Value.ToString("0") + "\n";
+        header_2 += "well " + form.numericUpDown_well.Value.ToString("0") + "\n";
+        header_2 += "FOV " + form.numericUpDown_FOV.Value.ToString("0") + "\n";
+        header_2 += "cells " + form.textBox_cells.Text + "\n";
 
-        //header_2 += "well_position " + form.textBox_well_position.Text + "\n";
-        //header_2 += "date_seeded " + form.maskedTextBox_date_seeded.Text + "\n";
-        //header_2 += "note " + form.textBox_note.Text + "\n";
+        header_2 += "well_position " + form.numericUpDown_well_position.Value.ToString("00") + "\n";
+        header_2 += "date_seeded " + form.maskedTextBox_date_seeded.Text + "\n";
+        header_2 += "note " + form.textBox_note.Text + "\n";
 
 
         return header_2;
