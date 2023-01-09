@@ -10,12 +10,14 @@ namespace Flowmeter_and_pump
     {
         private DateTime startTime;
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        private float req_time;// !!!!!!!!!!!!!!!!!!!!!!!!
+        private float req_time;
         public Form1 form;
 
         public Timer(Form1 form)
         {
             this.form = form;
+
+            req_time = this.form.req_time;
         }
 
         public void startTimer()

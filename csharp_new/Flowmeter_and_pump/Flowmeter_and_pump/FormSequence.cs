@@ -19,6 +19,7 @@ namespace Flowmeter_and_pump
         MetroLabel label_name;
         MetroLabel labele_value;
         private CultureInfo enUS = new CultureInfo("en-US");
+        private double req_time;
         public FormSequence(Form1 form, List<MetroLabel> label_list_names, List<MetroLabel> label_list_values, object sender)
         {
             this.form = form;
@@ -103,7 +104,7 @@ namespace Flowmeter_and_pump
             List<double> times = values.Item2;
             List<double> pascals = values.Item3;
 
-            double req_time = times.Sum() + delays.Sum() + float.Parse(form.textBox_time_reserve_s.Text, enUS);
+            req_time = times.Sum() + delays.Sum() + float.Parse(form.textBox_time_reserve_s.Text, enUS);
 
             return Math.Floor(req_time / 60).ToString("0") + "min " + (req_time % 60).ToString("0") + "s";
         }
@@ -130,6 +131,7 @@ namespace Flowmeter_and_pump
         private void button_ok_Click(object sender, EventArgs e)
         {
             encodeValues();
+            form.req_time = (float)req_time;
             this.Close();
         }
     }

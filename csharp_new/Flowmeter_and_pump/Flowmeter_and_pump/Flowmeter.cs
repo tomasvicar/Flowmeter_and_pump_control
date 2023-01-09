@@ -107,8 +107,17 @@ public class Flowmeter
 
                 t = t + period;
 
+
                 form.chart_flow.BeginInvoke((MethodInvoker)delegate
                 {
+                    decimal t_tmp = t;
+                    t_tmp = t_tmp - (period * (maxShowSamples - form.chart_flow.Series[0].Points.Count));
+                    while (form.chart_flow.Series[0].Points.Count < maxShowSamples)
+                    {
+                        t_tmp = t_tmp + period;
+                        form.chart_flow.Series[0].Points.AddXY(t_tmp, double.NaN);
+
+                    }
                     form.chart_flow.Series[0].Points.AddXY(t, data);
                     if (form.chart_flow.Series[0].Points.Count > maxShowSamples)
                     {

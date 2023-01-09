@@ -19,6 +19,7 @@ namespace Flowmeter_and_pump
     public partial class Form1 : MetroForm
     {
         private Logger logger;
+        public float req_time;
         private Flowmeter flowmeter;
         private Pump pump;
         private Timer timer;
@@ -37,11 +38,11 @@ namespace Flowmeter_and_pump
             logger = new Logger();
 
             flowmeter = new Flowmeter(this);
-            //flowmeter.openFlowSerial();
+            flowmeter.openFlowSerial();
 
 
             pump = new Pump(this);
-            //pump.openPumpSerial();
+            pump.openPumpSerial();
 
             saver = new Saver(this);
             saver.get_objects_to_save();
@@ -68,6 +69,12 @@ namespace Flowmeter_and_pump
 
         private void button_start_Click(object sender, EventArgs e)
         {
+            foreach (var series in chart_flow.Series)
+            {
+                series.Points.Clear();
+            }
+            checkBox_show_plot.Checked = true;
+
             button_start.Enabled = false;
             button_start_without_recording.Enabled = false;
             textBox_filename.Enabled = false;
@@ -207,6 +214,10 @@ namespace Flowmeter_and_pump
             }
             else 
             {
+                foreach (MetroCheckBox cb in label_list_checkboxes)
+                {
+                    cb.Enabled = true;
+                }
                 button_start.Enabled = false;
                 button_start_without_recording.Enabled = false;
             }
@@ -229,6 +240,33 @@ namespace Flowmeter_and_pump
         private void button_copy_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(textBox_filename.Text);
+        }
+
+        private void checkBox_show_plot_CheckedChanged(object sender, EventArgs e)
+        {
+            MetroCheckBox sender_converted = (MetroCheckBox)Convert.ChangeType(sender, typeof(MetroCheckBox));
+            if (sender_converted.Checked)
+            {
+                foreach (var series in chart_flow.Series)
+                {
+                    series.Points.Clear();
+                }
+                //chart_flow.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+                //chart_flow.ChartAreas[0].CursorX.AutoScroll = true;
+                //chart_flow.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+
+                //chart_flow.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
+                //chart_flow.ChartAreas[0].AxisY2.ScaleView.Zoomable = true;
+                //chart_flow.ChartAreas[0].CursorY.AutoScroll = true;
+                //chart_flow.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
+            }
+            
+        }
+
+        private void plotFlowFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPlotFlowFile formPlotFlowFile = new FormPlotFlowFile();
+            formPlotFlowFile.Show();
         }
     }
 }

@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormPlotFlowFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlotFlowFile.Designer.cs">
+      <DependentUpon>FormPlotFlowFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSequence.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlotFlowFile.resx">
+      <DependentUpon>FormPlotFlowFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSequence.resx">
       <DependentUpon>FormSequence.cs</DependentUpon>
