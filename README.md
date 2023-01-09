@@ -1,1 +1,3 @@
-# Prutokomer_a_pumpa
+# Control software for flowmeter and pump. 
+
+![gui](gui_with_plot.png)
