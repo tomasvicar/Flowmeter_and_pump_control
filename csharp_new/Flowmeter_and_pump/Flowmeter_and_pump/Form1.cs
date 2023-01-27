@@ -13,6 +13,7 @@ using MetroFramework.Controls;
 using Newtonsoft.Json;
 using System.IO;
 using System.Globalization;
+using System.Threading;
 
 namespace Flowmeter_and_pump
 {
@@ -30,6 +31,7 @@ namespace Flowmeter_and_pump
         private List<MetroPanel> panel_list = new List<MetroPanel>();
         public string header;
         private CultureInfo enUS = new CultureInfo("en-US");
+        private bool metroCheckBox_activateSpaceKeyFlag;
 
         public Form1()
         {
@@ -69,6 +71,21 @@ namespace Flowmeter_and_pump
 
         private void button_start_Click(object sender, EventArgs e)
         {
+            
+            label_countdown.Visible = true;
+            label_countdown.Text = "3";
+            label_countdown.Refresh();
+            Thread.Sleep(1000);
+            label_countdown.Text = "2";
+            label_countdown.Refresh();
+            Thread.Sleep(1000);
+            label_countdown.Text = "1";
+            label_countdown.Refresh();
+            Thread.Sleep(1000);
+            label_countdown.Visible = false;
+            Console.Beep();
+
+            flowmeter.setTstart();
             foreach (var series in chart_flow.Series)
             {
                 series.Points.Clear();
@@ -78,7 +95,7 @@ namespace Flowmeter_and_pump
             button_start.Enabled = false;
             button_start_without_recording.Enabled = false;
             textBox_filename.Enabled = false;
-
+            
             flowmeter.startTextFile();
 
             pump.run();
@@ -110,6 +127,7 @@ namespace Flowmeter_and_pump
             button_start_without_recording.Enabled = false;
             button_start.Enabled = false;
 
+            //flowmeter.setTstart();
             pump.run();
             timer = new Timer(this);
             timer.startTimer();
@@ -207,6 +225,7 @@ namespace Flowmeter_and_pump
                 }
                 sender_converted.Enabled = true;
 
+
                 header = pump.activateSequence(label_list_names, label_list_values, label_list_checkboxes, sender_converted);
 
                 button_start.Enabled = true;
@@ -247,6 +266,7 @@ namespace Flowmeter_and_pump
             MetroCheckBox sender_converted = (MetroCheckBox)Convert.ChangeType(sender, typeof(MetroCheckBox));
             if (sender_converted.Checked)
             {
+                flowmeter.setTstart();
                 foreach (var series in chart_flow.Series)
                 {
                     series.Points.Clear();
@@ -267,6 +287,40 @@ namespace Flowmeter_and_pump
         {
             FormPlotFlowFile formPlotFlowFile = new FormPlotFlowFile();
             formPlotFlowFile.Show();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+
+        private void metroCheckBox_activateSpace_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.metroCheckBox_activateSpaceKeyFlag = true;
+            this.metroCheckBox_activateSpace.Checked = false;
+
+            if (e.KeyCode == Keys.Space)
+            {
+                if (button_start_without_recording.Enabled)
+                    button_start_without_recording.PerformClick();
+                else
+                    button_stop_without_recording.PerformClick();
+            }
+        }
+
+        private void metroCheckBox_activateSpace_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.metroCheckBox_activateSpaceKeyFlag)
+            {
+                this.metroCheckBox_activateSpace.Checked = false;
+                this.metroCheckBox_activateSpaceKeyFlag = false;
+            }
+        }
+
+        private void metroCheckBox_activateSpace_Leave(object sender, EventArgs e)
+        {
+            this.metroCheckBox_activateSpace.Checked = false;
         }
     }
 }

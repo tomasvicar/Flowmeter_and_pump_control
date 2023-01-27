@@ -18,6 +18,7 @@ public class Flowmeter
     private decimal maxShowSamples = 800;
     private decimal period = 0.05m;
     private decimal t;
+    private decimal t_start;
     public bool recording = false;
     private StreamWriter textfile;
 
@@ -110,7 +111,9 @@ public class Flowmeter
 
                 form.chart_flow.BeginInvoke((MethodInvoker)delegate
                 {
-                    decimal t_tmp = t;
+
+                    decimal tt = t - t_start;
+                    decimal t_tmp = tt;
                     t_tmp = t_tmp - (period * (maxShowSamples - form.chart_flow.Series[0].Points.Count));
                     while (form.chart_flow.Series[0].Points.Count < maxShowSamples)
                     {
@@ -118,7 +121,7 @@ public class Flowmeter
                         form.chart_flow.Series[0].Points.AddXY(t_tmp, double.NaN);
 
                     }
-                    form.chart_flow.Series[0].Points.AddXY(t, data);
+                    form.chart_flow.Series[0].Points.AddXY(tt, data);
                     if (form.chart_flow.Series[0].Points.Count > maxShowSamples)
                     {
                         form.chart_flow.Series[0].Points.RemoveAt(0);
@@ -171,6 +174,11 @@ public class Flowmeter
 
 
 
+    }
+
+    public void setTstart()
+    {
+        t_start = t;
     }
 
     private string get_header_2()

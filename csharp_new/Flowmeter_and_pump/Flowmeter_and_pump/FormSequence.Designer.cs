@@ -98,7 +98,7 @@ namespace Flowmeter_and_pump
             // 
             // 
             this.textBox_sequence.CustomButton.Image = null;
-            this.textBox_sequence.CustomButton.Location = new System.Drawing.Point(524, 1);
+            this.textBox_sequence.CustomButton.Location = new System.Drawing.Point(612, 1);
             this.textBox_sequence.CustomButton.Name = "";
             this.textBox_sequence.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.textBox_sequence.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -124,6 +124,7 @@ namespace Flowmeter_and_pump
             this.textBox_sequence.UseSelectable = true;
             this.textBox_sequence.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textBox_sequence.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.textBox_sequence.Click += new System.EventHandler(this.textBox_sequence_Click);
             // 
             // button_ok
             // 

@@ -158,6 +158,7 @@ namespace Flowmeter_and_pump
             List<double> times = tmp2.Item2;
             List<double> rates = tmp2.Item3;
 
+            form.req_time = (float)(times.Sum() + delays.Sum() + float.Parse(form.textBox_time_reserve_s.Text, enUS));
 
 
             string rates_ml = "";

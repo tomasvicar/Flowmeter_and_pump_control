@@ -55,21 +55,16 @@ namespace Flowmeter_and_pump
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.maskedTextBox_date_seeded = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.numericUpDown_well_position = new FlatNumericUpDown();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.textBox_cells = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.textBox_experiment = new MetroFramework.Controls.MetroTextBox();
-            this.numericUpDown_FOV = new FlatNumericUpDown();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.numericUpDown_well = new FlatNumericUpDown();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.numericUpDown_WP = new FlatNumericUpDown();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.textBox_filename = new MetroFramework.Controls.MetroTextBox();
-            this.numericUpDown_number = new FlatNumericUpDown();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.panel_pump_panel2 = new MetroFramework.Controls.MetroPanel();
             this.checkBox_sequence2 = new MetroFramework.Controls.MetroCheckBox();
@@ -105,16 +100,18 @@ namespace Flowmeter_and_pump
             this.textBox_time_reserve_s = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.textBox_diameter = new MetroFramework.Controls.MetroTextBox();
+            this.metroCheckBox_activateSpace = new MetroFramework.Controls.MetroCheckBox();
             this.numericUpDown_num_of_seq = new FlatNumericUpDown();
+            this.numericUpDown_well_position = new FlatNumericUpDown();
+            this.numericUpDown_FOV = new FlatNumericUpDown();
+            this.numericUpDown_well = new FlatNumericUpDown();
+            this.numericUpDown_WP = new FlatNumericUpDown();
+            this.numericUpDown_number = new FlatNumericUpDown();
+            this.label_countdown = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart_flow)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel_pump_panel1.SuspendLayout();
             this.panel_data_description.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well_position)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_FOV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_WP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_number)).BeginInit();
             this.panel_pump_panel2.SuspendLayout();
             this.panel_pump_panel3.SuspendLayout();
             this.panel_pump_panel4.SuspendLayout();
@@ -123,13 +120,19 @@ namespace Flowmeter_and_pump
             this.panel_pump_panel7.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_num_of_seq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well_position)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_FOV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_WP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_number)).BeginInit();
             this.SuspendLayout();
             // 
             // button_start
             // 
+            this.button_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_start.Enabled = false;
             this.button_start.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.button_start.Location = new System.Drawing.Point(761, 684);
+            this.button_start.Location = new System.Drawing.Point(641, 684);
             this.button_start.Name = "button_start";
             this.button_start.Size = new System.Drawing.Size(76, 25);
             this.button_start.TabIndex = 0;
@@ -140,6 +143,9 @@ namespace Flowmeter_and_pump
             // 
             // chart_flow
             // 
+            this.chart_flow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chart_flow.BackColor = System.Drawing.Color.DimGray;
             chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.LightGray;
             chartArea3.AxisX.LabelStyle.Format = "#.0";
@@ -159,13 +165,14 @@ namespace Flowmeter_and_pump
             this.chart_flow.Series.Add(series3);
             this.chart_flow.Size = new System.Drawing.Size(1278, 402);
             this.chart_flow.TabIndex = 1;
-            this.chart_flow.Text = "chart1";
+            this.chart_flow.Text = "3";
             // 
             // button_stop
             // 
+            this.button_stop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_stop.Enabled = false;
             this.button_stop.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.button_stop.Location = new System.Drawing.Point(843, 684);
+            this.button_stop.Location = new System.Drawing.Point(723, 684);
             this.button_stop.Name = "button_stop";
             this.button_stop.Size = new System.Drawing.Size(76, 25);
             this.button_stop.TabIndex = 2;
@@ -176,6 +183,7 @@ namespace Flowmeter_and_pump
             // 
             // button_start_without_recording
             // 
+            this.button_start_without_recording.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_start_without_recording.Enabled = false;
             this.button_start_without_recording.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.button_start_without_recording.Location = new System.Drawing.Point(1087, 684);
@@ -189,6 +197,7 @@ namespace Flowmeter_and_pump
             // 
             // button_stop_without_recording
             // 
+            this.button_stop_without_recording.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_stop_without_recording.Enabled = false;
             this.button_stop_without_recording.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.button_stop_without_recording.Location = new System.Drawing.Point(1185, 684);
@@ -280,6 +289,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_pump_panel1
             // 
+            this.panel_pump_panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_pump_panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_pump_panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_pump_panel1.Controls.Add(this.checkBox_sequence1);
@@ -335,6 +345,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_data_description
             // 
+            this.panel_data_description.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_data_description.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_data_description.Controls.Add(this.button_copy);
             this.panel_data_description.Controls.Add(this.listBox_pump_comunication);
@@ -481,31 +492,6 @@ namespace Flowmeter_and_pump
             this.metroLabel9.Text = "date seeded";
             this.metroLabel9.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // numericUpDown_well_position
-            // 
-            this.numericUpDown_well_position.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.numericUpDown_well_position.BorderColor = System.Drawing.Color.Silver;
-            this.numericUpDown_well_position.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown_well_position.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numericUpDown_well_position.DecimalPlaces = 2;
-            this.numericUpDown_well_position.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown_well_position.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.numericUpDown_well_position.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDown_well_position.Location = new System.Drawing.Point(100, 117);
-            this.numericUpDown_well_position.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDown_well_position.Name = "numericUpDown_well_position";
-            this.numericUpDown_well_position.Size = new System.Drawing.Size(98, 24);
-            this.numericUpDown_well_position.TabIndex = 17;
-            this.numericUpDown_well_position.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
-            // 
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
@@ -596,30 +582,6 @@ namespace Flowmeter_and_pump
             this.textBox_experiment.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.textBox_experiment.TextChanged += new System.EventHandler(this.textBox_note_TextChanged);
             // 
-            // numericUpDown_FOV
-            // 
-            this.numericUpDown_FOV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.numericUpDown_FOV.BorderColor = System.Drawing.Color.Silver;
-            this.numericUpDown_FOV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown_FOV.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numericUpDown_FOV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown_FOV.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.numericUpDown_FOV.Location = new System.Drawing.Point(359, 12);
-            this.numericUpDown_FOV.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_FOV.Name = "numericUpDown_FOV";
-            this.numericUpDown_FOV.Size = new System.Drawing.Size(38, 24);
-            this.numericUpDown_FOV.TabIndex = 12;
-            this.numericUpDown_FOV.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_FOV.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
-            // 
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
@@ -630,30 +592,6 @@ namespace Flowmeter_and_pump
             this.metroLabel6.Text = "FOV";
             this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // numericUpDown_well
-            // 
-            this.numericUpDown_well.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.numericUpDown_well.BorderColor = System.Drawing.Color.Silver;
-            this.numericUpDown_well.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown_well.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numericUpDown_well.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown_well.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.numericUpDown_well.Location = new System.Drawing.Point(259, 12);
-            this.numericUpDown_well.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_well.Name = "numericUpDown_well";
-            this.numericUpDown_well.Size = new System.Drawing.Size(38, 24);
-            this.numericUpDown_well.TabIndex = 10;
-            this.numericUpDown_well.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_well.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
-            // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
@@ -663,30 +601,6 @@ namespace Flowmeter_and_pump
             this.metroLabel5.TabIndex = 9;
             this.metroLabel5.Text = "well";
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // numericUpDown_WP
-            // 
-            this.numericUpDown_WP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.numericUpDown_WP.BorderColor = System.Drawing.Color.Silver;
-            this.numericUpDown_WP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown_WP.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numericUpDown_WP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown_WP.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.numericUpDown_WP.Location = new System.Drawing.Point(172, 12);
-            this.numericUpDown_WP.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_WP.Name = "numericUpDown_WP";
-            this.numericUpDown_WP.Size = new System.Drawing.Size(38, 24);
-            this.numericUpDown_WP.TabIndex = 8;
-            this.numericUpDown_WP.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_WP.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
             // 
             // metroLabel4
             // 
@@ -752,30 +666,6 @@ namespace Flowmeter_and_pump
             this.textBox_filename.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textBox_filename.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // numericUpDown_number
-            // 
-            this.numericUpDown_number.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.numericUpDown_number.BorderColor = System.Drawing.Color.Silver;
-            this.numericUpDown_number.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDown_number.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numericUpDown_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown_number.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.numericUpDown_number.Location = new System.Drawing.Point(69, 12);
-            this.numericUpDown_number.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_number.Name = "numericUpDown_number";
-            this.numericUpDown_number.Size = new System.Drawing.Size(38, 24);
-            this.numericUpDown_number.TabIndex = 3;
-            this.numericUpDown_number.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_number.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
-            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -788,6 +678,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_pump_panel2
             // 
+            this.panel_pump_panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_pump_panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_pump_panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_pump_panel2.Controls.Add(this.checkBox_sequence2);
@@ -843,6 +734,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_pump_panel3
             // 
+            this.panel_pump_panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_pump_panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_pump_panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_pump_panel3.Controls.Add(this.checkBox_sequence3);
@@ -898,6 +790,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_pump_panel4
             // 
+            this.panel_pump_panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_pump_panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_pump_panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_pump_panel4.Controls.Add(this.checkBox_sequence4);
@@ -953,6 +846,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_pump_panel5
             // 
+            this.panel_pump_panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_pump_panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_pump_panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_pump_panel5.Controls.Add(this.checkBox_sequence5);
@@ -1008,6 +902,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_pump_panel6
             // 
+            this.panel_pump_panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_pump_panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_pump_panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_pump_panel6.Controls.Add(this.checkBox_sequence6);
@@ -1063,6 +958,7 @@ namespace Flowmeter_and_pump
             // 
             // panel_pump_panel7
             // 
+            this.panel_pump_panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_pump_panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_pump_panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_pump_panel7.Controls.Add(this.checkBox_sequence7);
@@ -1118,8 +1014,9 @@ namespace Flowmeter_and_pump
             // 
             // label_COM_flow
             // 
+            this.label_COM_flow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_COM_flow.AutoSize = true;
-            this.label_COM_flow.Location = new System.Drawing.Point(442, 695);
+            this.label_COM_flow.Location = new System.Drawing.Point(322, 695);
             this.label_COM_flow.Name = "label_COM_flow";
             this.label_COM_flow.Size = new System.Drawing.Size(28, 19);
             this.label_COM_flow.TabIndex = 14;
@@ -1129,9 +1026,10 @@ namespace Flowmeter_and_pump
             // 
             // checkBox_show_plot
             // 
+            this.checkBox_show_plot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox_show_plot.AutoSize = true;
             this.checkBox_show_plot.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.checkBox_show_plot.Location = new System.Drawing.Point(617, 689);
+            this.checkBox_show_plot.Location = new System.Drawing.Point(497, 689);
             this.checkBox_show_plot.Name = "checkBox_show_plot";
             this.checkBox_show_plot.Size = new System.Drawing.Size(85, 19);
             this.checkBox_show_plot.TabIndex = 15;
@@ -1142,8 +1040,9 @@ namespace Flowmeter_and_pump
             // 
             // label_COM_pump
             // 
+            this.label_COM_pump.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_COM_pump.AutoSize = true;
-            this.label_COM_pump.Location = new System.Drawing.Point(517, 696);
+            this.label_COM_pump.Location = new System.Drawing.Point(397, 696);
             this.label_COM_pump.Name = "label_COM_pump";
             this.label_COM_pump.Size = new System.Drawing.Size(28, 19);
             this.label_COM_pump.TabIndex = 16;
@@ -1153,8 +1052,9 @@ namespace Flowmeter_and_pump
             // 
             // metroLabel11
             // 
+            this.metroLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(429, 679);
+            this.metroLabel11.Location = new System.Drawing.Point(310, 679);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(68, 19);
             this.metroLabel11.TabIndex = 17;
@@ -1163,8 +1063,9 @@ namespace Flowmeter_and_pump
             // 
             // metroLabel12
             // 
+            this.metroLabel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(510, 679);
+            this.metroLabel12.Location = new System.Drawing.Point(391, 679);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(44, 19);
             this.metroLabel12.TabIndex = 18;
@@ -1173,8 +1074,9 @@ namespace Flowmeter_and_pump
             // 
             // label_timer
             // 
+            this.label_timer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_timer.AutoSize = true;
-            this.label_timer.Location = new System.Drawing.Point(938, 690);
+            this.label_timer.Location = new System.Drawing.Point(818, 690);
             this.label_timer.Name = "label_timer";
             this.label_timer.Size = new System.Drawing.Size(40, 19);
             this.label_timer.TabIndex = 19;
@@ -1249,6 +1151,7 @@ namespace Flowmeter_and_pump
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.metroPanel1.Controls.Add(this.textBox_diameter);
             this.metroPanel1.Controls.Add(this.numericUpDown_num_of_seq);
             this.metroPanel1.Controls.Add(this.textBox_time_reserve_s);
@@ -1299,6 +1202,22 @@ namespace Flowmeter_and_pump
             this.textBox_diameter.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textBox_diameter.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // metroCheckBox_activateSpace
+            // 
+            this.metroCheckBox_activateSpace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroCheckBox_activateSpace.AutoSize = true;
+            this.metroCheckBox_activateSpace.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.metroCheckBox_activateSpace.Location = new System.Drawing.Point(977, 690);
+            this.metroCheckBox_activateSpace.Name = "metroCheckBox_activateSpace";
+            this.metroCheckBox_activateSpace.Size = new System.Drawing.Size(110, 19);
+            this.metroCheckBox_activateSpace.TabIndex = 23;
+            this.metroCheckBox_activateSpace.Text = "activate space";
+            this.metroCheckBox_activateSpace.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroCheckBox_activateSpace.UseSelectable = true;
+            this.metroCheckBox_activateSpace.CheckedChanged += new System.EventHandler(this.metroCheckBox_activateSpace_CheckedChanged);
+            this.metroCheckBox_activateSpace.KeyDown += new System.Windows.Forms.KeyEventHandler(this.metroCheckBox_activateSpace_KeyDown);
+            this.metroCheckBox_activateSpace.Leave += new System.EventHandler(this.metroCheckBox_activateSpace_Leave);
+            // 
             // numericUpDown_num_of_seq
             // 
             this.numericUpDown_num_of_seq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1328,12 +1247,147 @@ namespace Flowmeter_and_pump
             0});
             this.numericUpDown_num_of_seq.ValueChanged += new System.EventHandler(this.numericUpDown_num_of_seq_ValueChanged);
             // 
+            // numericUpDown_well_position
+            // 
+            this.numericUpDown_well_position.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.numericUpDown_well_position.BorderColor = System.Drawing.Color.Silver;
+            this.numericUpDown_well_position.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown_well_position.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.numericUpDown_well_position.DecimalPlaces = 2;
+            this.numericUpDown_well_position.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_well_position.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.numericUpDown_well_position.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericUpDown_well_position.Location = new System.Drawing.Point(100, 117);
+            this.numericUpDown_well_position.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown_well_position.Name = "numericUpDown_well_position";
+            this.numericUpDown_well_position.Size = new System.Drawing.Size(98, 24);
+            this.numericUpDown_well_position.TabIndex = 17;
+            this.numericUpDown_well_position.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
+            // 
+            // numericUpDown_FOV
+            // 
+            this.numericUpDown_FOV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.numericUpDown_FOV.BorderColor = System.Drawing.Color.Silver;
+            this.numericUpDown_FOV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown_FOV.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.numericUpDown_FOV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_FOV.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.numericUpDown_FOV.Location = new System.Drawing.Point(359, 12);
+            this.numericUpDown_FOV.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_FOV.Name = "numericUpDown_FOV";
+            this.numericUpDown_FOV.Size = new System.Drawing.Size(38, 24);
+            this.numericUpDown_FOV.TabIndex = 12;
+            this.numericUpDown_FOV.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_FOV.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
+            // 
+            // numericUpDown_well
+            // 
+            this.numericUpDown_well.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.numericUpDown_well.BorderColor = System.Drawing.Color.Silver;
+            this.numericUpDown_well.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown_well.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.numericUpDown_well.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_well.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.numericUpDown_well.Location = new System.Drawing.Point(259, 12);
+            this.numericUpDown_well.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_well.Name = "numericUpDown_well";
+            this.numericUpDown_well.Size = new System.Drawing.Size(38, 24);
+            this.numericUpDown_well.TabIndex = 10;
+            this.numericUpDown_well.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_well.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
+            // 
+            // numericUpDown_WP
+            // 
+            this.numericUpDown_WP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.numericUpDown_WP.BorderColor = System.Drawing.Color.Silver;
+            this.numericUpDown_WP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown_WP.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.numericUpDown_WP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_WP.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.numericUpDown_WP.Location = new System.Drawing.Point(172, 12);
+            this.numericUpDown_WP.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_WP.Name = "numericUpDown_WP";
+            this.numericUpDown_WP.Size = new System.Drawing.Size(38, 24);
+            this.numericUpDown_WP.TabIndex = 8;
+            this.numericUpDown_WP.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_WP.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
+            // 
+            // numericUpDown_number
+            // 
+            this.numericUpDown_number.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.numericUpDown_number.BorderColor = System.Drawing.Color.Silver;
+            this.numericUpDown_number.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericUpDown_number.ButtonHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.numericUpDown_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown_number.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.numericUpDown_number.Location = new System.Drawing.Point(69, 12);
+            this.numericUpDown_number.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_number.Name = "numericUpDown_number";
+            this.numericUpDown_number.Size = new System.Drawing.Size(38, 24);
+            this.numericUpDown_number.TabIndex = 3;
+            this.numericUpDown_number.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_number.ValueChanged += new System.EventHandler(this.textBox_note_TextChanged);
+            // 
+            // label_countdown
+            // 
+            this.label_countdown.AutoSize = true;
+            this.label_countdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_countdown.ForeColor = System.Drawing.Color.Red;
+            this.label_countdown.Location = new System.Drawing.Point(584, 185);
+            this.label_countdown.Name = "label_countdown";
+            this.label_countdown.Size = new System.Drawing.Size(68, 73);
+            this.label_countdown.TabIndex = 24;
+            this.label_countdown.Text = "3";
+            this.label_countdown.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1291, 718);
+            this.Controls.Add(this.label_countdown);
+            this.Controls.Add(this.metroCheckBox_activateSpace);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.label_timer);
             this.Controls.Add(this.metroLabel12);
@@ -1359,6 +1413,7 @@ namespace Flowmeter_and_pump
             this.Name = "Form1";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.chart_flow)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1366,11 +1421,6 @@ namespace Flowmeter_and_pump
             this.panel_pump_panel1.PerformLayout();
             this.panel_data_description.ResumeLayout(false);
             this.panel_data_description.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well_position)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_FOV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_WP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_number)).EndInit();
             this.panel_pump_panel2.ResumeLayout(false);
             this.panel_pump_panel2.PerformLayout();
             this.panel_pump_panel3.ResumeLayout(false);
@@ -1385,6 +1435,11 @@ namespace Flowmeter_and_pump
             this.panel_pump_panel7.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_num_of_seq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well_position)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_FOV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_well)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_WP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_number)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1466,6 +1521,8 @@ namespace Flowmeter_and_pump
         private MetroFramework.Controls.MetroButton button_copy;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem plotFlowFileToolStripMenuItem;
+        public MetroFramework.Controls.MetroCheckBox metroCheckBox_activateSpace;
+        private System.Windows.Forms.Label label_countdown;
     }
 }
 

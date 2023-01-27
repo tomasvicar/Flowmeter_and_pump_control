@@ -134,5 +134,10 @@ namespace Flowmeter_and_pump
             form.req_time = (float)req_time;
             this.Close();
         }
+
+        private void textBox_sequence_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
