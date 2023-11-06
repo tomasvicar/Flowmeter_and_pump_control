@@ -14,21 +14,22 @@ namespace Flowmeter_and_pump
 
         public Logger()
         {
-            string path = "logs";
-            DateTime time = DateTime.Now;
 
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
+            //string path = "logs";
+            //DateTime time = DateTime.Now;
 
-            string filename = Path.Combine(path, "log" + "_" + time.ToString(CultureInfo.GetCultureInfo("cs-CZ")).Replace(".", "_").Replace(":", "_").Replace(" ", "_") + ".txt");
+            //if (!Directory.Exists(path))
+            //{
+            //    Directory.CreateDirectory(path);
+            //}
 
-            FileStream filestream = new FileStream(filename, FileMode.Create);
-            var streamwriter = new StreamWriter(filestream);
-            streamwriter.AutoFlush = true;
-            Console.SetOut(streamwriter);
-            Console.SetError(streamwriter);
+            //string filename = Path.Combine(path, "log" + "_" + time.ToString(CultureInfo.GetCultureInfo("cs-CZ")).Replace(".", "_").Replace(":", "_").Replace(" ", "_") + ".txt");
+
+            //FileStream filestream = new FileStream(filename, FileMode.Create);
+            //var streamwriter = new StreamWriter(filestream);
+            //streamwriter.AutoFlush = true;
+            //Console.SetOut(streamwriter);
+            //Console.SetError(streamwriter);
 
         }
 

@@ -31,6 +31,8 @@ public class Flowmeter
     {
         this.form.label_COM_flow.Text = "Connecting";
         this.form.label_COM_flow.ForeColor = System.Drawing.Color.Gray;
+        this.form.label_COM_flow.Refresh();
+        this.form.Update();
 
         string[] arrayComPortsNames = SerialPort.GetPortNames();
 
@@ -196,7 +198,7 @@ public class Flowmeter
         header_2 += "well_position " + form.numericUpDown_well_position.Value.ToString("00") + "\n";
         header_2 += "date_seeded " + form.maskedTextBox_date_seeded.Text + "\n";
         header_2 += "note " + form.textBox_note.Text + "\n";
-
+        header_2 += "Pa_is_xx_ml/min " + form.textBox_pa_is_xx_ml_min.Text  + "\n";
 
         return header_2;
     }

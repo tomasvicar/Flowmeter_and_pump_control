@@ -44,7 +44,15 @@ namespace Flowmeter_and_pump
 
 
             pump = new Pump(this);
-            pump.openPumpSerial();
+            if (!File.Exists("virtual.txt"))
+            {
+                pump.openPumpSerial();
+            }
+            else
+            {
+                pump.openVirtualPumpSerial();
+            }
+
 
             saver = new Saver(this);
             saver.get_objects_to_save();
@@ -66,7 +74,14 @@ namespace Flowmeter_and_pump
 
         private void label_COM_pump_Click(object sender, EventArgs e)
         {
-            pump.openPumpSerial();
+            if (!File.Exists("virtual.txt"))
+            {
+                pump.openPumpSerial();
+            }
+            else
+            {
+                pump.openVirtualPumpSerial();
+            }
         }
 
         private void button_start_Click(object sender, EventArgs e)

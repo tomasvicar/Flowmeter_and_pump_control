@@ -13,8 +13,9 @@ namespace Flowmeter_and_pump
 {
     class Pump
     {
-        public Form1 form; 
-        private SerialPort serialPort;
+        public Form1 form;
+        private ISerialPort serialPort;
+        //private SerialPort serialPort;
         private CultureInfo enUS = new CultureInfo("en-US");
         private string actulaPump;
         public string header;
@@ -25,8 +26,8 @@ namespace Flowmeter_and_pump
 
         public void openPumpSerial()
         {
-            form.label_COM_pump.Text = "Connecting";
-            form.label_COM_pump.ForeColor = System.Drawing.Color.Gray;
+            UpdateLabel(form.label_COM_pump, "Connecting", System.Drawing.Color.Gray);
+
 
             string[] arrayComPortsNames = SerialPort.GetPortNames();
 
@@ -43,7 +44,8 @@ namespace Flowmeter_and_pump
                 Console.WriteLine(port);
                 try
                 {
-                    serialPort = new SerialPort(port, 115200);
+                    serialPort = new SerialPortAdapter(port, 115200);
+                    //serialPort = new SerialPort(port, 115200);
                     serialPort.DataBits = 8;
                     serialPort.Parity = Parity.None;
                     serialPort.StopBits = StopBits.One;
@@ -62,8 +64,7 @@ namespace Flowmeter_and_pump
 
                     if (message1.Trim().Substring(2).Equals("status"))
                     {
-                        form.label_COM_pump.Text = port;
-                        form.label_COM_pump.ForeColor = System.Drawing.Color.Green;
+                        UpdateLabel(form.label_COM_pump, port, System.Drawing.Color.Green);
                         serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandlerPump);
                         return;
                     }
@@ -85,8 +86,7 @@ namespace Flowmeter_and_pump
                     serialPort.Close();
                 }
             }
-            form.label_COM_pump.Text = "NA";
-            form.label_COM_pump.ForeColor = System.Drawing.Color.Red;
+            UpdateLabel(form.label_COM_pump, "NA", System.Drawing.Color.Red);
         }
 
 
@@ -140,7 +140,7 @@ namespace Flowmeter_and_pump
             string label_value = "";
             for (int i = 0; i < label_list_checkboxes.Count; i++)
             {
-                if (label_list_checkboxes[i] == sender) 
+                if (label_list_checkboxes[i] == sender)
                 {
                     label_value = label_list_values[i].Text;
                     break;
@@ -213,6 +213,7 @@ namespace Flowmeter_and_pump
 
 
 
+
             header = "";
             header += "times " + times_string + "\n";
             header += "rates_ml/min " + rates_ml + "\n";
@@ -225,5 +226,120 @@ namespace Flowmeter_and_pump
 
 
 
+
+        public void openVirtualPumpSerial()
+        {
+            UpdateLabel(form.label_COM_pump, "Connecting", System.Drawing.Color.Gray);
+
+
+            string[] arrayComPortsNames = SerialPort.GetPortNames();
+
+            if (!(serialPort == null))
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                    Thread.Sleep(3000);
+                }
+            }
+            foreach (string port in arrayComPortsNames)
+            {
+                Console.WriteLine(port);
+                try
+                {
+                    //serialPort = new SerialPort(port, 115200);
+                    serialPort = new VirtualSerialPort(port, 115200);
+                    serialPort.DataBits = 8;
+                    serialPort.Parity = Parity.None;
+                    serialPort.StopBits = StopBits.One;
+                    serialPort.WriteTimeout = 500;
+                    serialPort.ReadTimeout = 500;
+                    serialPort.NewLine = "\r\n";
+
+
+                    serialPort.Open();
+                    Thread.Sleep(4000);
+
+                    serialPort.WriteLine("ko?");
+                    string message1 = serialPort.ReadLine();
+                    Console.WriteLine(message1);
+
+                    if (message1.Trim() == "ok")
+                    {
+                        UpdateLabel(form.label_COM_pump, port, System.Drawing.Color.Green);
+                        serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandlerPump);
+                        return;
+                    }
+                    else
+                    {
+                        serialPort.Close();
+
+                    }
+
+
+
+                }
+                catch (TimeoutException)
+                {
+                    Console.WriteLine("time out");
+                    serialPort.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    serialPort.Close();
+                }
+            }
+            UpdateLabel(form.label_COM_pump, "NA", System.Drawing.Color.Red);
+
+        }
+
+        private void DataReceivedHandlerVirtualPump(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                SerialPort sp = (SerialPort)sender;
+                string indata = sp.ReadLine();
+
+                Console.WriteLine(indata);
+
+
+
+                string to_write = DateTime.Now.ToString("HH:mm:ss.fff");
+
+                form.listBox_pump_comunication.BeginInvoke((MethodInvoker)delegate
+                {
+                    form.listBox_pump_comunication.BeginUpdate();
+                    form.listBox_pump_comunication.Items.Add(to_write + ": " + indata);
+                    if (form.listBox_pump_comunication.Items.Count > 10)
+                    {
+                        form.listBox_pump_comunication.Items.RemoveAt(0);
+                    }
+                    form.listBox_pump_comunication.EndUpdate();
+                });
+
+            }
+            catch
+            {
+
+            }
+
+        }
+
+
+        private void UpdateLabel(Label label, string text, System.Drawing.Color color)
+        {
+            if (label.InvokeRequired)
+            {
+                label.Invoke(new Action(() => UpdateLabel(label, text, color)));
+            }
+            else
+            {
+                label.Text = text;
+                label.ForeColor = color;
+                label.Refresh();
+            }
+        }
     }
+
 }
