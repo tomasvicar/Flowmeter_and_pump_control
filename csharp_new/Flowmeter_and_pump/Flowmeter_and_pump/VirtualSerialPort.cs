@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
+using System.Globalization;
 
 namespace Flowmeter_and_pump
 {
@@ -132,7 +133,7 @@ namespace Flowmeter_and_pump
                 if (splitText.Length == 4)
                 {
                     string[] volumeStrings = splitText[3].Split(',');
-                    volumes = volumeStrings.Select(v => float.TryParse(v, out float vol) ? vol : 0f).ToList();
+                    volumes = volumeStrings.Select(v => float.TryParse(v, NumberStyles.Float, CultureInfo.InvariantCulture, out float vol) ? vol : 0f).ToList();
                 }
             }
             else if (text.StartsWith("1 set rate"))
@@ -142,7 +143,7 @@ namespace Flowmeter_and_pump
                 if (splitText.Length == 4)
                 {
                     string[] rateStrings = splitText[3].Split(',');
-                    rates = rateStrings.Select(r => float.TryParse(r, out float rate) ? rate : 0f).ToList();
+                    rates = rateStrings.Select(r => float.TryParse(r, NumberStyles.Float, CultureInfo.InvariantCulture, out float rate) ? rate : 0f).ToList();
                 }
             }
             else if (text.StartsWith("1 set delay"))
